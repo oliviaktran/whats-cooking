@@ -181,67 +181,73 @@ export default function HomeScreen() {
       <ThemedView style={styles.block}>
         <ThemedText type="subtitle">Ingredients</ThemedText>
 
-        <ThemedText style={styles.label}>Proteins</ThemedText>
-        <View style={styles.chips}>
-          {proteinTabs.flatMap((t) => t.items).slice(0, 14).map((item) => {
-            const selected = selectedProteins.includes(item);
-            return (
-              <Pressable
-                key={item}
-                onPress={() => setSelectedProteins((cur) => toggleItem(cur, item))}
-                style={[
-                  styles.chip,
-                  { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
-                ]}>
-                <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
-                  {item}
-                </ThemedText>
-              </Pressable>
-            );
-          })}
+        <View style={[styles.ingredientGroup, styles.ingredientGroupFirst]}>
+          <ThemedText style={styles.label}>Proteins</ThemedText>
+          <View style={styles.chips}>
+            {proteinTabs.flatMap((t) => t.items).slice(0, 14).map((item) => {
+              const selected = selectedProteins.includes(item);
+              return (
+                <Pressable
+                  key={item}
+                  onPress={() => setSelectedProteins((cur) => toggleItem(cur, item))}
+                  style={[
+                    styles.chip,
+                    { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
+                  ]}>
+                  <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
+                    {item}
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
+          </View>
         </View>
 
-        <ThemedText style={styles.label}>Carbs</ThemedText>
-        <View style={styles.chips}>
-          {carbTabs.flatMap((t) => t.items).slice(0, 14).map((item) => {
-            const selected = selectedCarbs.includes(item);
-            return (
-              <Pressable
-                key={item}
-                onPress={() => setSelectedCarbs((cur) => toggleItem(cur, item))}
-                style={[
-                  styles.chip,
-                  { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
-                ]}>
-                <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
-                  {item}
-                </ThemedText>
-              </Pressable>
-            );
-          })}
+        <View style={styles.ingredientGroup}>
+          <ThemedText style={styles.label}>Carbs</ThemedText>
+          <View style={styles.chips}>
+            {carbTabs.flatMap((t) => t.items).slice(0, 14).map((item) => {
+              const selected = selectedCarbs.includes(item);
+              return (
+                <Pressable
+                  key={item}
+                  onPress={() => setSelectedCarbs((cur) => toggleItem(cur, item))}
+                  style={[
+                    styles.chip,
+                    { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
+                  ]}>
+                  <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
+                    {item}
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
+          </View>
         </View>
 
-        <ThemedText style={styles.label}>Veggies</ThemedText>
-        <View style={styles.chips}>
-          {vegetableTabs.flatMap((t) => t.items).slice(0, 18).map((item) => {
-            const selected = selectedVegetables.includes(item);
-            return (
-              <Pressable
-                key={item}
-                onPress={() => setSelectedVegetables((cur) => toggleItem(cur, item))}
-                style={[
-                  styles.chip,
-                  { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
-                ]}>
-                <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
-                  {item}
-                </ThemedText>
-              </Pressable>
-            );
-          })}
+        <View style={styles.ingredientGroup}>
+          <ThemedText style={styles.label}>Veggies</ThemedText>
+          <View style={styles.chips}>
+            {vegetableTabs.flatMap((t) => t.items).slice(0, 18).map((item) => {
+              const selected = selectedVegetables.includes(item);
+              return (
+                <Pressable
+                  key={item}
+                  onPress={() => setSelectedVegetables((cur) => toggleItem(cur, item))}
+                  style={[
+                    styles.chip,
+                    { borderColor: border, backgroundColor: selected ? tint : 'transparent' },
+                  ]}>
+                  <ThemedText style={[styles.chipText, { color: selected ? '#fff' : textColor }]}>
+                    {item}
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
+          </View>
         </View>
 
-        <ThemedText style={styles.metaLine}>
+        <ThemedText style={[styles.metaLine, styles.ingredientsMetaLine]}>
           Selected: {selectedProteins.length} proteins · {selectedCarbs.length} carbs · {selectedVegetables.length} veg
         </ThemedText>
       </ThemedView>
@@ -412,6 +418,13 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: 8,
   },
+  ingredientGroup: {
+    gap: 8,
+    marginTop: 24,
+  },
+  ingredientGroupFirst: {
+    marginTop: 0,
+  },
   chip: {
     borderWidth: 1,
     borderRadius: 999,
@@ -443,6 +456,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     opacity: 0.9,
+  },
+  ingredientsMetaLine: {
+    marginTop: 24,
   },
   results: {
     gap: 16,
