@@ -1,5 +1,5 @@
-import { loadRootEnvOnce } from "./loadRootEnv";
-import { callClaude } from "./anthropic";
+import { loadRootEnvOnce } from "./loadRootEnv.js";
+import { callClaude } from "./anthropic.js";
 
 loadRootEnvOnce();
 

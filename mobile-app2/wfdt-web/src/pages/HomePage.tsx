@@ -322,7 +322,12 @@ export function HomePage() {
     <div style={{ padding: "20px 16px 120px" }}>
       <HeaderNav />
 
-      <h1 style={{ marginBottom: 8, color: "var(--color-primary)" }}>🍴 Forkcast</h1>
+      <h1
+        className="heading-1-schoolbell"
+        style={{ marginBottom: 8, color: "var(--color-primary)" }}
+      >
+        🍴 What’s Cooking?
+      </h1>
       <p className="text-tiny" style={{ marginBottom: 24 }}>
         Pick ingredients and we&apos;ll suggest meals with full nutrition.
       </p>

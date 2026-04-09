@@ -1,13 +1,27 @@
 
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 import { normalizeRecipes } from '@/lib/normalizeRecipes';
 import type { GenerateMealPayload, Recipe } from '@/lib/types/recipe';
 
 function devDefaultBase(): string {
+  // When running on a physical device, `localhost` points at the phone.
+  // Expo usually exposes the dev host as something like "10.0.0.x:8081".
+  const hostUri =
+    (Constants.expoConfig as { hostUri?: string } | undefined)?.hostUri ??
+    (Constants as unknown as { expoGoConfig?: { debuggerHost?: string } }).expoGoConfig
+      ?.debuggerHost ??
+    (Constants as unknown as { manifest?: { debuggerHost?: string } }).manifest?.debuggerHost;
+
+  const devHost =
+    typeof hostUri === 'string' && hostUri.length > 0 ? hostUri.split(':')[0] : undefined;
+
   return Platform.select({
+    // Android emulator special-case: route to host via 10.0.2.2
     android: 'http://10.0.2.2:5173',
-    default: 'http://localhost:5173',
+    // iOS simulator can use localhost; physical devices need LAN IP.
+    default: devHost ? `http://${devHost}:5173` : 'http://localhost:5173',
   })!;
 }
 

@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import type { GeneratePayload } from "../lib-server/meals";
-import { generateRecipes } from "../lib-server/meals";
+import type { GeneratePayload } from "../lib-server/meals.js";
+import { generateRecipes } from "../lib-server/meals.js";
 
 export default async function handler(
   req: VercelRequest,

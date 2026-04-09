@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { swapIngredient } from "../lib-server/meals";
+import { swapIngredient } from "../lib-server/meals.js";
 
 export default async function handler(
   req: VercelRequest,

@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "http";
 import type { Plugin } from "vite";
-import type { GeneratePayload } from "./lib-server/meals";
-import { generateRecipes, swapIngredient } from "./lib-server/meals";
+import type { GeneratePayload } from "./lib-server/meals.js";
+import { generateRecipes, swapIngredient } from "./lib-server/meals.js";
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {

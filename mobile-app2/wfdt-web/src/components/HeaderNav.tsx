@@ -14,36 +14,36 @@ const pill: React.CSSProperties = {
 
 export function HeaderNav() {
   return (
-    <nav
-      className="tab-row"
-      style={{ gap: 10, marginBottom: 20 }}
-      aria-label="Primary"
-    >
-      <NavLink
-        to="/"
-        end
-        aria-label="AI powered meal generator"
-        style={({ isActive }) => ({
-          ...pill,
-          background: isActive ? "var(--color-primary)" : "var(--color-background)",
-          color: isActive ? "var(--color-on-primary)" : "var(--color-text-strong)",
-          borderColor: isActive ? "var(--color-primary)" : "var(--color-stroke-strong)",
-        })}
-      >
-        ✨ AI powered meal generator
-      </NavLink>
-      <NavLink
-        to="/design"
-        aria-label="Design system reference"
-        style={({ isActive }) => ({
-          ...pill,
-          background: isActive ? "var(--color-pill)" : "var(--color-background)",
-          color: isActive ? "#fff" : "var(--color-text-strong)",
-          borderColor: isActive ? "var(--color-pill)" : "var(--color-stroke-strong)",
-        })}
-      >
-        🎨 Design system
-      </NavLink>
-    </nav>
+    <div className="sticky-top-nav">
+      <div className="sticky-top-nav-inner">
+        <nav className="tab-row" style={{ gap: 10, marginBottom: 20 }} aria-label="Primary">
+          <NavLink
+            to="/"
+            end
+            aria-label="AI powered meal generator"
+            style={({ isActive }) => ({
+              ...pill,
+              background: isActive ? "var(--color-primary)" : "var(--color-background)",
+              color: isActive ? "var(--color-on-primary)" : "var(--color-text-strong)",
+              borderColor: isActive ? "var(--color-primary)" : "var(--color-stroke-strong)",
+            })}
+          >
+            ✨ AI powered meal generator
+          </NavLink>
+          <NavLink
+            to="/design"
+            aria-label="Design system reference"
+            style={({ isActive }) => ({
+              ...pill,
+              background: isActive ? "var(--color-pill)" : "var(--color-background)",
+              color: isActive ? "#fff" : "var(--color-text-strong)",
+              borderColor: isActive ? "var(--color-pill)" : "var(--color-stroke-strong)",
+            })}
+          >
+            🎨 Design system
+          </NavLink>
+        </nav>
+      </div>
+    </div>
   );
 }

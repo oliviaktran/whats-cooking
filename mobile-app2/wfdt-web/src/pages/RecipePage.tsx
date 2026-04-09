@@ -32,6 +32,15 @@ export function RecipePage() {
     }
   }, [recipe]);
 
+  const ingredientsText = useMemo(
+    () =>
+      ings
+        .map((i) => `${(i.quantity ?? "").trim()} ${(i.name ?? "").trim()}`.trim())
+        .filter(Boolean)
+        .join("\n"),
+    [ings],
+  );
+
   if (!recipe) {
     return (
       <div style={{ padding: 24 }}>
@@ -44,15 +53,6 @@ export function RecipePage() {
   }
 
   const activeRecipe = recipe;
-
-  const ingredientsText = useMemo(
-    () =>
-      ings
-        .map((i) => `${(i.quantity ?? "").trim()} ${(i.name ?? "").trim()}`.trim())
-        .filter(Boolean)
-        .join("\n"),
-    [ings],
-  );
 
   async function onSwap(ing: Ingredient) {
     setSwappingId(ing.id);

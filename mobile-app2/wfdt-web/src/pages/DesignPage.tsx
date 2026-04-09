@@ -20,7 +20,7 @@ export function DesignPage() {
       <HeaderNav />
       <h1 style={{ marginBottom: 8 }}>Design system</h1>
       <p className="text-tiny" style={{ marginBottom: 24 }}>
-        Reference for <Link to="/">Forkcast</Link> tokens and primitives.
+        Reference for <Link to="/">What’s Cooking?</Link> tokens and primitives.
       </p>
 
       <section className="card" style={{ padding: 16, marginBottom: 20 }}>

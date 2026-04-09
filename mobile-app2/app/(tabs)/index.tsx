@@ -84,18 +84,23 @@ export default function HomeScreen() {
   const apiHint = getWfdtApiBaseUrl() || '(set EXPO_PUBLIC_WFDT_API_URL)';
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.scroll, { backgroundColor: pageBg }]}
-      keyboardShouldPersistTaps="handled">
+    <View style={[styles.screen, { backgroundColor: pageBg }]}>
       <ThemedView style={styles.header}>
-        <ThemedText type="title" lightColor="#690507" darkColor="#690507">
-          🍴 Forkcast
+        <ThemedText
+          type="title"
+          lightColor="#690507"
+          darkColor="#690507"
+          style={{ fontFamily: 'Schoolbell_400Regular' }}>
+          🍴 What’s Cooking?
         </ThemedText>
         <ThemedText style={styles.sub}>
           Calls your wfdt-web `/api/generate` endpoint. Dev default: {apiHint}
         </ThemedText>
       </ThemedView>
 
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        keyboardShouldPersistTaps="handled">
       <ThemedView style={styles.block}>
         <ThemedText type="subtitle">Basics</ThemedText>
         <View style={styles.row}>
@@ -346,17 +351,23 @@ export default function HomeScreen() {
           ))}
         </ThemedView>
       ) : null}
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   scroll: {
     padding: 20,
-    paddingTop: 56,
     paddingBottom: 40,
   },
   header: {
+    paddingTop: 56,
+    paddingHorizontal: 20,
+    paddingBottom: 12,
     gap: 8,
     marginBottom: 20,
   },

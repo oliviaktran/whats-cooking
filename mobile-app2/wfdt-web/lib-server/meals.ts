@@ -1,5 +1,5 @@
-import { extractJsonArray, extractJsonObject } from "./anthropic";
-import { callLlm } from "./llm";
+import { extractJsonArray, extractJsonObject } from "./anthropic.js";
+import { callLlm } from "./llm.js";
 
 export interface GeneratePayload {
   servings: number;
