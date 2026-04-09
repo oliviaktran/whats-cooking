@@ -135,15 +135,11 @@ a.card.recipe-card-link:focus-visible {
   height: 6px;
 }
 
-/* Sticky top nav (HeaderNav) */
+/* Top nav (HeaderNav) */
 .sticky-top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: static;
   padding-top: env(safe-area-inset-top);
-  /* Keeps content readable as it floats over cards */
-  background: color-mix(in srgb, var(--color-stroke-weak) 88%, transparent);
-  backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 .sticky-top-nav-inner {
@@ -153,7 +149,7 @@ a.card.recipe-card-link:focus-visible {
 /* Safari fallback when `color-mix()` isn't supported */
 @supports not (background: color-mix(in srgb, white 50%, transparent)) {
   .sticky-top-nav {
-    background: rgba(240, 236, 228, 0.88);
+    background: transparent;
   }
 }
 

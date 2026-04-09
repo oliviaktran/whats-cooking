@@ -18,7 +18,12 @@ export function DesignPage() {
   return (
     <div style={{ padding: "20px 16px 48px" }}>
       <HeaderNav />
-      <h1 style={{ marginBottom: 8 }}>Design system</h1>
+      <h1
+        className="heading-1-schoolbell"
+        style={{ marginBottom: 8, color: "var(--color-primary)" }}
+      >
+        Design system
+      </h1>
       <p className="text-tiny" style={{ marginBottom: 24 }}>
         Reference for <Link to="/">What’s Cooking?</Link> tokens and primitives.
       </p>
@@ -56,10 +61,21 @@ export function DesignPage() {
 
       <section className="card" style={{ padding: 16, marginBottom: 20 }}>
         <h3 style={{ marginBottom: 12 }}>Typography</h3>
-        <h1>Heading 1</h1>
-        <h2 style={{ marginTop: 12 }}>Heading 2</h2>
-        <h3 style={{ marginTop: 12 }}>Heading 3</h3>
-        <p style={{ marginTop: 12 }}>Body / Small 16px</p>
+        <h1
+          className="heading-1-schoolbell"
+          style={{ margin: 0, color: "var(--color-primary)" }}
+        >
+          Heading 1
+        </h1>
+        <h2 style={{ marginTop: 12, color: "var(--color-text-strong)" }}>
+          Heading 2
+        </h2>
+        <h3 style={{ marginTop: 12, color: "var(--color-text-strong)" }}>
+          Heading 3
+        </h3>
+        <p style={{ marginTop: 12, color: "var(--color-text-strong)" }}>
+          Body / Small 16px
+        </p>
         <p className="text-tiny" style={{ marginTop: 8 }}>
           Tiny metadata 14px
         </p>

@@ -35,9 +35,9 @@ export function HeaderNav() {
             aria-label="Design system reference"
             style={({ isActive }) => ({
               ...pill,
-              background: isActive ? "var(--color-pill)" : "var(--color-background)",
-              color: isActive ? "#fff" : "var(--color-text-strong)",
-              borderColor: isActive ? "var(--color-pill)" : "var(--color-stroke-strong)",
+              background: isActive ? "var(--color-primary)" : "var(--color-background)",
+              color: isActive ? "var(--color-on-primary)" : "var(--color-text-strong)",
+              borderColor: isActive ? "var(--color-primary)" : "var(--color-stroke-strong)",
             })}
           >
             🎨 Design system
